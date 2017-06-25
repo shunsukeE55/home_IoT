@@ -13,7 +13,7 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 if ($message->{"text"} == '室温' or $message->{"text"} == '温度' or $message->{"text"} == '湿度') {
     $messageData = [
         'type' => 'text',
-        'text' => $message->{"text"}
+        'text' => $message->{"さぁー分かりません"}
     ];
 } else {
     // それ以外は送られてきたテキストをオウム返し
