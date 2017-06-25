@@ -9,14 +9,14 @@ $jsonObj = json_decode($jsonString);
 $message = $jsonObj->{"events"}[0]->{"message"};
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
-// ‘—‚ç‚ê‚Ä‚«‚½ƒƒbƒZ[ƒW‚Ì’†g‚©‚çƒŒƒXƒ|ƒ“ƒX‚Ìƒ^ƒCƒv‚ð‘I‘ð
-if ($message->{"text"} == 'Žº‰·' or $message->{"text"} == '‰·“x' or $message->{"text"} == 'Ž¼“x') {
+// é€ã‚‰ã‚Œã¦ããŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ä¸­èº«ã‹ã‚‰ãƒ¬ã‚¹ãƒãƒ³ã‚¹ã®ã‚¿ã‚¤ãƒ—ã‚’é¸æŠž
+if ($message->{"text"} == 'å®¤æ¸©' or $message->{"text"} == 'æ¸©åº¦' or $message->{"text"} == 'æ¹¿åº¦') {
     $messageData = [
         'type' => 'text',
-        'text' => $message->{"‚³‚Ÿ[•ª‚©‚è‚Ü‚¹‚ñ"}
+        'text' => $message->{"ã•ããƒ¼åˆ†ã‹ã‚Šã¾ã›ã‚“"}
     ];
 } else {
-    // ‚»‚êˆÈŠO‚Í‘—‚ç‚ê‚Ä‚«‚½ƒeƒLƒXƒg‚ðƒIƒEƒ€•Ô‚µ
+    // ãã‚Œä»¥å¤–ã¯é€ã‚‰ã‚Œã¦ããŸãƒ†ã‚­ã‚¹ãƒˆã‚’ã‚ªã‚¦ãƒ è¿”ã—
     $messageData = [
         'type' => 'text',
         'text' => $message->{"text"}
