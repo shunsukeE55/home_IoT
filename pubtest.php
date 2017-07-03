@@ -4,7 +4,7 @@
  </head>
  <body>
 <?php
-echo '<p>MQTT Publish<p>'
+echo '<p>MQTT Publish<p>';
 # MQTT設定
 require( "phpMQTT.php" );
 
