@@ -1,6 +1,6 @@
 <?php
 # MQTT設定
-require( "./phpMQTT.php" );
+require( "phpMQTT.php" );
 
 $mqtt_host = "m11.cloudmqtt.com"; # MQTT ブローカー
 $mqtt_port = 14292; # MQTT ポート番号
