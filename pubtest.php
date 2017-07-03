@@ -10,7 +10,7 @@ require( "phpMQTT.php" );
 
 $mqtt_host = "m11.cloudmqtt.com"; # MQTT ブローカー
 $mqtt_port = 14292; # MQTT ポート番号
-$mqtt_clientid = "heroku_php"
+$mqtt_clientid = "heroku_php";
 $mqtt_username = "pi";
 $mqtt_password = "1uYBQTs9QnRf";
 
