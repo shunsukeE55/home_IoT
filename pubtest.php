@@ -1,9 +1,10 @@
 <html>
  <head>
-  <title>PHP Callback</title>
+  <title>PHP Publish</title>
  </head>
  <body>
 <?php
+echo '<p>MQTT Publish<p>'
 # MQTT設定
 require( "phpMQTT.php" );
 
