@@ -22,8 +22,6 @@ $mqtt = new phpMQTT( $mqtt_host, $mqtt_port, $mqtt_clientid );
 if( $mqtt->connect(true,NULL,$mqtt_username,$mqtt_password) ){
   $mqtt->publish( $mqtt_topic, $mqtt_message, 0 );
   $mqtt->close();
-}else{
-  echo '<p>error</p>';
 }
 ?>
  </body>
