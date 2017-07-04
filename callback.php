@@ -28,7 +28,7 @@ $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 // 送られてきたメッセージの中身からレスポンスのタイプを選択
 if ($message->{"text"} == '室温' or $message->{"text"} == '温度' or $message->{"text"} == '湿度') {
     $mqtt_topic = "homeiot/thermo";
-    $mqtt_message = 'thermomerter execute'; # パブリッシュするメッセージ
+    $mqtt_message = 'execute'; # パブリッシュするメッセージ
     $messageData = [
         'type' => 'text',
         'text' => '計測中...'
