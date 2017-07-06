@@ -19,7 +19,7 @@ $topic = "homeiot/thermo";
 $mqtt = new phpMQTT($host, $port, "ClientID".rand());
 
 if(!$mqtt->connect(true,NULL,$username,$password)){
-  echo '<p>not connect</p>'
+  echo '<p>not connect</p>';
   exit(1);
 }
 
