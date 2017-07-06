@@ -92,6 +92,7 @@ function procmsg($mqtt_topic,$msg){
         'type' => 'text',
         'text' => str_replace("??", "%0D%0A", $msg)
     ];
+    echo '<p>Msg Recieved: '.str_replace("??", "%0D%0A", $msg).'</p>';
 }
 
 # LINE 返答
