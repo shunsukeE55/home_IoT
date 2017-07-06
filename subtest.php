@@ -33,7 +33,6 @@ while($mqtt->proc(true)){
         
         break;
     }
-    sleep(1);
     $execount++;
 }
 
