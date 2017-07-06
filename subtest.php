@@ -19,6 +19,7 @@ $topic = "homeiot/thermo";
 $mqtt = new phpMQTT($host, $port, "ClientID".rand());
 
 if(!$mqtt->connect(true,NULL,$username,$password)){
+  echo '<p>not connect</p>'
   exit(1);
 }
 
@@ -26,8 +27,8 @@ if(!$mqtt->connect(true,NULL,$username,$password)){
 $topics['topic'] = array("qos"=>0, "function"=>"procmsg");
 $mqtt->subscribe($topics,0);
 
-#while($mqtt->proc()){
-#
+#while(1){
+#$mqtt->proc()
 #}
 
 $mqtt->close();
