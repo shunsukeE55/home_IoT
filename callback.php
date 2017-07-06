@@ -4,7 +4,7 @@
  </head>
  <body>
 <?php
-echo '<p>ver.0.0.4</p>';
+echo '<p>ver.0.0.5</p>';
 # MQTT設定
 require( "./phpMQTT.php" );
 
@@ -69,8 +69,8 @@ if( $mqtt_sub->connect(true,NULL,$mqtt_username,$mqtt_password) ){
   $mqtt_sub->subscribe($topics,0);
   $i=1;
   while($mqtt_sub->proc()){
-   echo '<p>計測中。。。'.i.'</p>';
-   $1++;
+   echo '<p>計測中。。。'.$i.'</p>';
+   $i++;
   }
   $mqtt_sub->close();
 }
