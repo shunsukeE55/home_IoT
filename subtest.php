@@ -27,9 +27,14 @@ if(!$mqtt->connect(true,NULL,$username,$password)){
 $topics['topic'] = array("qos"=>0, "function"=>"procmsg");
 $mqtt->subscribe($topics,0);
 
-#while(1){
-#$mqtt->proc()
-#}
+$execount=0;
+while($mqtt->proc(true)){
+    if($execount == 10){
+        break;
+    }
+    sleep(10);
+    $execount++;
+}
 
 $mqtt->close();
 function procmsg($topic,$msg){
