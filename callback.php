@@ -63,27 +63,27 @@ else
 }
 
 # MQTT SUBSCRIBE
-#$mqtt = new phpMQTT( $mqtt_host, $mqtt_port, $mqtt_clientid );
-#if( $mqtt->connect(true,NULL,$mqtt_username,$mqtt_password) ){
-#  $topics['topic'] = array("qos"=>0, "function"=>"procmsg");
-#  $mqtt->subscribe($mqtt_topic,0);
-#  while($mqtt->proc()){}
-#  $mqtt->close();
-#}
-#else
-#{
-#  error_log("Fail or time out");
-#    $messageData = [
-#        'type' => 'text',
-#        'text' => '計測失敗しました'
-#    ];
-#}
-#function procmsg($mqtt_topic,$msg){
-#    $messageData = [
-#        'type' => 'text',
-#        'text' => str_replace("??", "%0D%0A", $msg)
-#    ];
-#}
+$mqtt_sub = new phpMQTT( $mqtt_host, $mqtt_port, $mqtt_clientid );
+if( $mqtt_sub->connect(true,NULL,$mqtt_username,$mqtt_password) ){
+  $topics['topic'] = array("qos"=>0, "function"=>"procmsg");
+  $mqtt_sub->subscribe($mqtt_topic,0);
+  while($mqtt_sub->proc()){}
+  $mqtt_sub->close();
+}
+else
+{
+  error_log("Fail or time out");
+    $messageData = [
+        'type' => 'text',
+        'text' => '計測失敗しました'
+    ];
+}
+function procmsg($mqtt_topic,$msg){
+    $messageData = [
+        'type' => 'text',
+        'text' => str_replace("??", "%0D%0A", $msg)
+    ];
+}
 
 # LINE 返答
 $ch = curl_init('https://api.line.me/v2/bot/message/reply');
