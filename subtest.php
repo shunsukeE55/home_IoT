@@ -38,7 +38,11 @@ while($mqtt->proc(true)){
 
 $mqtt->close();
 function procmsg($topic,$msg){
-  echo '<p>Msg Recieved: '.$msg.'</p>';
+  print<<<EOF
+  <script type="text/javascript">
+     alert("$msg");
+  </script>
+  EOF;
 }
 
 ?>
