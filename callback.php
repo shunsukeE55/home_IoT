@@ -64,7 +64,7 @@ else
 # MQTT SUBSCRIBE
 $mqtt_sub = new phpMQTT( $mqtt_host, $mqtt_port, $mqtt_clientid );
 if( $mqtt_sub->connect(true,NULL,$mqtt_username,$mqtt_password) ){
-  $topics['topic'] = array("qos"=>0, "function"=>"procmsg");
+  $topics[$topic] = array("qos"=>0, "function"=>"procmsg");
   $mqtt_sub->subscribe($topics,0);
   $i=1;
   while($mqtt_sub->proc()){
@@ -75,7 +75,6 @@ if( $mqtt_sub->connect(true,NULL,$mqtt_username,$mqtt_password) ){
        ];
        break; 
    }
-   echo '<p>計測中。。。'.$i.'</p>';
    $i++;
   }
   $mqtt_sub->close();
