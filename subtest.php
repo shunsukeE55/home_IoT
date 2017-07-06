@@ -29,10 +29,10 @@ $mqtt->subscribe($topics,0);
 
 $execount=0;
 while($mqtt->proc(true)){
-    if($execount == 10){
+    if($execount == 15){
         break;
     }
-    sleep(10);
+    sleep(1);
     $execount++;
 }
 
