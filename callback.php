@@ -67,8 +67,10 @@ $mqtt_sub = new phpMQTT( $mqtt_host, $mqtt_port, $mqtt_clientid );
 if( $mqtt_sub->connect(true,NULL,$mqtt_username,$mqtt_password) ){
   $topics['topic'] = array("qos"=>0, "function"=>"procmsg");
   $mqtt_sub->subscribe($topics,0);
+  $i=1;
   while($mqtt_sub->proc()){
-  
+   echo '<p>計測中。。。'.i.'</p>';
+   $1++;
   }
   $mqtt_sub->close();
 }
