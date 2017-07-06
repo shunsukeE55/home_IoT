@@ -10,10 +10,9 @@ require( "./phpMQTT.php" );
 
 $mqtt_host = "m11.cloudmqtt.com"; # MQTT ブローカー
 $mqtt_port = 14292; # MQTT ポート番号
-$mqtt_clientid = 'mqtt'.date(YmdHis);
+$mqtt_clientid = "mqtt";
 $mqtt_username = "pi";
 $mqtt_password = "1uYBQTs9QnRf";
-
 
 # LINE設定
 $accessToken = '5hmeIkICCMUkTHSE/3NWz0OmphzC/r+Qt8FoFx1PWJTopxQ2EIRYZ4f9IEPOOOt9QzZPNKwRiVed5iNfawkJfuUiBjVKcysnqdtooBpnOp+9EgQsh5FlMqJq8IO1mZhL3nDHADPtN7Y5U9fawrGLEwdB04t89/1O/w1cDnyilFU=';
@@ -58,7 +57,7 @@ else
   error_log("Fail or time out");
     $messageData = [
         'type' => 'text',
-        'text' => '計測失敗しました'
+        'text' => '計測失敗'
     ];
 }
 
@@ -69,6 +68,13 @@ if( $mqtt_sub->connect(true,NULL,$mqtt_username,$mqtt_password) ){
   $mqtt_sub->subscribe($topics,0);
   $i=1;
   while($mqtt_sub->proc()){
+   if($i==1000){ 
+       $messageData = [
+           'type' => 'text',
+           'text' => '計測失敗'
+       ];
+       break; 
+   }
    echo '<p>計測中。。。'.$i.'</p>';
    $i++;
   }
@@ -79,7 +85,7 @@ else
   error_log("Fail or time out");
     $messageData = [
         'type' => 'text',
-        'text' => '計測失敗しました'
+        'text' => '計測失敗'
     ];
 }
 function procmsg($mqtt_topic,$msg){
