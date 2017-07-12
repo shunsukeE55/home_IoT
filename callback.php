@@ -33,7 +33,7 @@ if ($message->{"text"} == '室温' or $message->{"text"} == '温度' or $message
     //    'text' => '計測中...'
     //];
 } else {
-     それ以外は送られてきたテキストをオウム返し
+    // それ以外は送られてきたテキストをオウム返し
     $messageData = [
         'type' => 'text',
         'text' => $message->{"text"}
